@@ -2,9 +2,9 @@
 
 @section('content')
 
-@include('layout.header')
+{{-- @include('layout.header')
 
-@include('layout.nav')
+@include('layout.nav') --}}
 
 <form action="{{route('landlordregister.post')}}" method="post" enctype="multipart/form-data">
     @if($errors->any())
@@ -19,9 +19,9 @@
 @csrf
 
 {{-- register --}}
-<div class="container pt-16 pb-28 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.pexels.com/photos/8292894/pexels-photo-8292894.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+<div class="py-10 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1535393791955-658d126d19c3?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
 
-    <div class="mx-auto bg-white shadow-md rounded-t-md px-6 py-7 overflow-hidden">
+    <div class="max-w-5xl mx-auto bg-white shadow-md rounded-2xl px-6 py-7 overflow-hidden">
         <div class="ml-10 mt-5">
             <h2 class="text-2xl uppercase font-medium mb-1">Signup</h2>
             <p class="text-gray-600 mb-6 text-sm">
@@ -146,6 +146,6 @@
 </div>
 {{-- end of register --}}
 
-@include('layout.footer');
+{{-- @include('layout.footer'); --}}
 @endsection
 
