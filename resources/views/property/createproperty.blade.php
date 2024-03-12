@@ -1,96 +1,95 @@
-@extends('layout.authlayout')
+@extends('layout.ownerlayout')
+
 @section('content')
-@include('layout.header')
-@include('layout.ownernav')
+
+@include('layout.ownerheader')
 {{-- Listing Area --}}
 {{-- basic info --}}
 <form method="POST" action="{{ route('propertylisting.post') }}">
 @csrf
 
-    <div class="container mx-auto p-6 bg-white">
+    <div class="container py-6 space-x-5 space-y-5 bg-white">
 
-        {{-- basic info --}}
-        <div class="text-lg font-bold mb-4 my-10 mx-20 border-b">Basic Information</div>
-            <div class="mx-36 my-20">
-                <div class="py-3 mb-6">
-                    <div class="text-base font-semibold mb-2">Property Type: </div>
-                    <select name="property_type" class=" rounded-md border border-gray-300 p-2 w-full">
-                        <option>--Choose One--</option>
-                        <option>Apartment</option>
-                        <option>Condominium</option>
-                        <option>House</option>
-                    </select>
+        <div class="grid grid-cols-2">
+            {{-- basic info --}}
+            <div class=" p-6 bg-white hover:scale-105 hover:shadow-2xl rounded-2xl transition mx-5">
+                <div class="text-lg font-bold mb-4 my-10 mx-5 border-b">Basic Information</div>
+                    <div class="mx-5 my-10">
+                        <div class="py-3 mb-6">
+                            <div class="text-base font-semibold mb-2">Property Type: </div>
+                            <select name="property_type" class=" rounded-md border border-gray-300 p-2 w-full">
+                                <option>--Choose One--</option>
+                                <option>Apartment</option>
+                                <option>Condominium</option>
+                                <option>House</option>
+                            </select>
+                        </div>
+                    </div>
+            </div>
+            {{-- end of Basic Info --}}
+
+            {{-- Rental Rates --}}
+            <div class=" p-6 bg-white hover:scale-105 hover:shadow-2xl rounded-2xl transition mx-5">
+                <div class="text-lg font-bold mb-4 my-10 mx-5 border-b">Rental Rate</div>
+                <div class="mx-5 my-10">
+                    <div class="text-base font-semibold">Monthly Rate:</div>
+
+                    <div class="flex items-center py-5">
+                        <i class="fa-solid fa-peso-sign"></i>
+                        <input type="text" name="monthly_rate" placeholder="" class="rounded-md border border-gray-300 ml-5 w-full ">
+                    </div>
+
                 </div>
             </div>
-        {{-- end of Basic Info --}}
+        </div>
 
-        {{-- Rental Rates --}}
-        <div class="container mx-auto p-6 bg-white">
-            <div class="text-lg font-bold mb-4 my-10 mx-20 border-b">Rental Rate</div>
-            <div class="mx-36 my-20">
-                <div class="mx-10 mt-5 p-10 border border-black rounded-md">
+        {{-- loca and add info --}}
+        <div class="p-6 pt-5 bg-white hover:scale-105 hover:shadow-2xl rounded-2xl transition mx-5">
+            <div class="text-lg font-bold mb-4 my-10 mx-5 border-b">Location and Address</div>
+
+            <div class="grid grid-cols-2">
+                <div class="mx-5 my-10">
+                    <div class="py-3">
+                        <div class="text-base font-semibold mr-1 mb-2">Unit Number or House Number: </div>
+                        <input type="text" name="unit_number" placeholder="" class="rounded-md border border-gray-300 w-full">
+                    </div>
 
                     <div class="py-3">
-                        <div class="text-base font-semibold">Monthly Rate:</div>
-
-                        <div class="flex items-center py-5">
-                            <i class="fa-solid fa-peso-sign"></i>
-                            <input type="text" name="monthly_rate" placeholder="" class="rounded-md border border-gray-300 ml-5 w-full ">
-                        </div>
-
+                        <div class="text-base font-semibold mb-2">Floor: </div>
+                        <input type="text" name="floor" placeholder="" class="rounded-md border border-gray-300 w-full">
                     </div>
                 </div>
 
-            </div>
-        </div>
+                <div class="mx-5 my-10">
+                    <div class="py-3">
+                        <div class="text-base font-semibold mb-2">Street, neighborhood & Barangay: </div>
+                        <input type="text" name="street" placeholder="" class="capitalize rounded-md border border-gray-300 w-full">
+                    </div>
 
-        {{-- Location and Address --}}
-        <div class="container mx-auto p-6 bg-white">
-            <div class="text-lg font-bold mb-4 my-10 mx-20 border-b">Location and Address</div>
-
-            <div class="mx-36 my-20">
-                <div class="py-3">
-                    <div class="text-base font-semibold mr-1 mb-2">Unit Number or House Number: </div>
-                    <input type="text" name="unit_number" placeholder="" class="rounded-md border border-gray-300 w-full">
-                </div>
-
-                <div class="py-3">
-                    <div class="text-base font-semibold mb-2">Floor: </div>
-                    <input type="text" name="floor" placeholder="" class="rounded-md border border-gray-300 w-full">
-                </div>
-
-                <div class="py-3">
-                    <div class="text-base font-semibold mb-2">Street, neighborhood & Barangay: </div>
-                    <input type="text" name="street" placeholder="" class="capitalize rounded-md border border-gray-300 w-full">
-                </div>
-
-                <div class="py-3">
-                    <div class="text-base font-semibold mr-3 mb-2">City: </div>
-                    <input type="text" name="city" placeholder="" class="capitalize rounded-md border border-gray-300 w-full">
+                    <div class="py-3">
+                        <div class="text-base font-semibold mr-3 mb-2">City: </div>
+                        <input type="text" name="city" placeholder="" class="capitalize rounded-md border border-gray-300 w-full">
+                    </div>
                 </div>
             </div>
+
         </div>
-        {{-- end of Location and Address --}}
 
-        {{-- Securityy Deposit--}}
-        <div class="container mx-auto p-6 bg-white">
-            <div class="text-lg font-bold mb-4 my-10 mx-20 border-b">Security Deposit</div>
-
-            <div class="mx-36 my-20">
-                <div class="mx-10 mt-5 p-10 border border-black rounded-md">
-                    <div class="text-base font-semibold mr-1 mb-2">Amount: </div>
+        {{-- Rental Rates --}}
+        <div class=" p-6 bg-white hover:scale-105 hover:shadow-2xl rounded-2xl transition mx-5">
+            <div class="text-lg font-bold mb-4 my-10 mx-5 border-b">Security Deposit</div>
+            <div class="mx-5 my-10">
+                <div class="text-base font-semibold mr-1 mb-2">Amount: </div>
                     <div class="flex items-center py-5">
                         <i class="fa-solid fa-peso-sign"></i>
                         <input type="text" name="security_deposit" placeholder="" class="rounded-md border border-gray-300 ml-5 w-full">
                     </div>
-                </div>
             </div>
         </div>
-        {{-- end of Location and Address --}}
 
-        {{-- Property Details --}}
-        <div class="container mx-auto p-6 bg-white">
-            <div class="text-lg font-bold mb-4 my-10 mx-20 border-b">Property Details</div>
+        {{-- loca and add info --}}
+        <div class="p-6 pt-5 bg-white hover:scale-105 hover:shadow-2xl rounded-2xl transition mx-5">
+            <div class="text-lg font-bold mb-4 my-10 mx-5 border-b">Property Details</div>
 
             <div class="container grid grid-cols-3 gap-6 pt-4 pb-16 items-start">
 
@@ -171,11 +170,9 @@
                 </div>
             </div>
         </div>
-        {{-- end of Property Details --}}
 
-        {{-- Title and desc --}}
-        <div class="container mx-auto p-6 bg-white">
-            <div class="text-lg font-bold mb-4 my-10 mx-20 border-b">Title & Description</div>
+        <div class=" p-6 bg-white hover:scale-105 hover:shadow-2xl rounded-2xl transition mx-5">
+            <div class="text-lg font-bold mb-4 my-10 mx-5 border-b">Title & Description</div>
 
             <div class="mx-36 my-20">
                 <div class="flex items-center py-3">
@@ -191,12 +188,11 @@
                 </div>
             </div>
         </div>
-        {{-- end of Title and desc --}}
 
         {{-- Go Button --}}
             <div class="container mx-auto p-6 bg-white">
                 <a href="" class="text-center text-gray-700 hover:text-primary transition relative">
-                <button type="submit" class="uppercase bg-gray-700 hover:bg-red-500 border hover:border-primary text-white hover:text-whitefont-bold py-2 px-4 w-full h-24 rounded-md my-20 mx-auto block">
+                <button type="submit" class="uppercase bg-gray-700 hover:bg-red-500 border hover:border-red-500 text-white hover:text-white hover:scale-105 transition font-bold py-2 px-4 w-full h-24 rounded-md my-10 mx-auto block">
                     Create listing and proceed to adding photos
                 </button>
             </a>
@@ -207,7 +203,7 @@
 </form>
 {{-- End of Listing Area --}}
 
-@include('layout.footer')
+{{-- @include('layout.footer') --}}
 @endsection
 @section('scripts')
     @parent

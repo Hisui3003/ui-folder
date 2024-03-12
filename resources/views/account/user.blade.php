@@ -1,10 +1,10 @@
-@extends('layout.authlayout')
+@extends('layout.ownerlayout')
 
 @section('content')
 
-@include('layout.header')
+@include('layout.ownerheader')
 
-@include('layout.ownernav')
+{{-- @include('layout.ownernav') --}}
 
 
 {{-- account wrapper --}}
@@ -71,10 +71,6 @@
 
         </div>
 
-        <div class="container border-t border-b rounded-md bg-white h-24">
-            {{-- idk --}}
-        </div>
-
         <div class=" bg-white px-4 pb-2 overflow-hidden ">
             <div class="mr-14 flex items-center">
                 <h3 class="text-xl mt-10 font-semibold">
@@ -129,7 +125,7 @@
 </div>
 {{-- account wrapper --}}
 
-@include('layout.footer');
+{{-- @include('layout.footer'); --}}
 @endsection
 
 @section('scripts')

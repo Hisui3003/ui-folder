@@ -20,6 +20,8 @@
                     Welcome to
                     <span class="font-semibold text-lg text-center text-red-500 mb-2">FindFlat</span>
                 </p>
+
+                {{-- {{route('login.post')}} --}}
                 <form action="{{route('login.post')}}" method="post">
                     @if($errors->any())
                             <div class="alert alert-danger text-red-500">
