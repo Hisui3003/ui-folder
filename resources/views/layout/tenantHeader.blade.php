@@ -8,17 +8,17 @@
 
 
         {{-- search area --}}
-        <div class="w-full max-w-xl relative flex">
+        <div class="w-full max-w-xl relative flex ml-24 hover:shadow-2xl hover:scale-105 transition">
             <span class="absolute left-4 top-3 text-lg text-gray-400">
                 <i class="fas fa-search"></i>
             </span>
-            <input type="text" class="w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-1-md focus:outline-none" placeholder="Search">
-            <button class="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition">Search</button>
+            <input type="text" class="w-full border border-primary pl-12 py-3 pr-3 rounded-l-md focus:outline-none" placeholder="Search">
+            <button class="bg-red-500 border border-red-500 text-white px-8 rounded-r-md hover:bg-red-600 hover:text-white hover:font-bold transition">Search</button>
         </div>
 
 
         {{-- yung icons --}}
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 ml-16">
 
 
             {{-- listing a property button --}}

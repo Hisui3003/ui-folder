@@ -1,4 +1,4 @@
-@extends('layout.authlayout')
+@extends('layout.tenantlayout')
 
 @section('content')
 
@@ -11,7 +11,7 @@
         <div class="flex items-center">
             <img src="https://www.svgrepo.com/show/507442/user-circle.svg" class="w-40 mr-10" alt="">
             <h3 class="text-xl font-semibold">
-                Tenant: {{ $accounts->fname }} {{ $accounts->lname }}
+                {{ $accounts->fname }} {{ $accounts->lname }}
             </h3>
         </div>
     </div>
