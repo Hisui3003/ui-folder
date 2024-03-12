@@ -11,29 +11,29 @@
 
     <div class="mx-36 my-20">
 
-        <div class="mx-10 mt-5 p-10 border border-black rounded-md">
+        <div class="mx-10 mt-5 p-10 border border-black rounded-md hover:scale-105 hover:shadow-2xl transition">
 
             <div class="text-xs text-gray-600 ml-56 mt-1"></div>
 
-            <div class="flex items-center">
+            <div class="flex items-center ">
                 <div class="text-base font-semibold mb-2">Property Name:</div>
                 <i class="fa-solid fa-house-circle-check ml-12"></i>
-                <input type="text" disabled value="{{ $property->description->title }}" class="rounded-md border border-gray-300 ml-3 w-96">
+                {{-- <input type="text" disabled value="{{ $property->description->title }}" class="rounded-md border border-gray-300 ml-3 w-96"> --}}
             </div>
 
             <div class="flex items-center my-5">
                 <div class="text-base font-semibold mb-2">Address:</div>
                 <i class="fa-solid fa-map-location-dot ml-24"></i>
-                <input type="text" disabled value="{{ $property->address->unit_number }}" class="rounded-md border border-gray-300 ml-3 w-96">
+                {{-- <input type="text" disabled value="{{ $property->address->unit_number }}" class="rounded-md border border-gray-300 ml-3 w-96"> --}}
             </div>
 
         </div>
 
         {{-- rental date calculator --}}
-        <div class="mx-10 mt-5 p-10 border border-black rounded-md">
+        <div class="mx-10 mt-5 p-10 border border-black rounded-md hover:scale-105 hover:shadow-2xl transition">
             <div class="mb-4 flex space-x-10 items-center">
                 <label for="start-date" class="text-base font-semibold">Start Date:</label>
-                <input type="date" value="{{ $paymentDate }}" id="start-date" class="form-input rounded px-5">
+                {{-- <input type="date" value="{{ $paymentDate }}" id="start-date" class="form-input rounded px-5"> --}}
             </div>
 
             <label for="duration" class="text-base font-semibold">Duration:</label>
@@ -66,6 +66,7 @@
             </div>
         </div>
         {{-- end of rental date calculator --}}
+
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script>
             $(document).ready(function () {
@@ -81,7 +82,7 @@
 <form action="{{ route('submit.payment') }}" method="post" enctype="multipart/form-data">
     @csrf
         {{-- proof of payment --}}
-        <div class="mx-10 mt-5 p-10 border border-black rounded-md">
+        <div class="mx-10 mt-5 p-10 border border-black rounded-md hover:scale-105 hover:shadow-2xl transition">
             <div class="text-xs text-gray-600 ml-56 mt-1"></div>
             <div class="flex items-center">
                 <div class="text-base font-semibold mb-2">Proof of Payment:</div>
@@ -92,6 +93,18 @@
             </div>
         </div>
 
+        {{-- Go Button --}}
+        <div class="container mx-auto p-6 bg-white flex justify-end ">
+
+            <!-- Add hidden fields for $contract and $paymentDate -->
+            <input type="hidden" name="contract_id" value="">
+            <input type="hidden" name="payment_date" value="">
+            {{-- <input type="hidden" name="contract_id" value="{{ $contract->id }}"> --}}
+            {{-- <input type="hidden" name="payment_date" value="{{ $paymentDate }}"> --}}
+            <button type="submit" class="bg-gray-700 hover:bg-red-500 border hover:border-red-500 text-white hover:text-white font-bold py-2 px-4 rounded-md hover:scale-105 hover:shadow-2xl transition">
+                Submit Payment
+            </button>
+        </div>
     </div>
 </div>
 {{-- end of Rental Rates --}}
@@ -107,16 +120,8 @@
         }
     }
 </script>
-{{-- Go Button --}}
-<div class="container mx-auto p-6 bg-white">
 
-        <!-- Add hidden fields for $contract and $paymentDate -->
-        <input type="hidden" name="contract_id" value="{{ $contract->id }}">
-        <input type="hidden" name="payment_date" value="{{ $paymentDate }}">
-        <button type="submit" class="bg-primary hover:bg-transparent border hover:border-primary text-white hover:text-primary font-bold py-2 px-4 rounded-md">
-            Submit Payment
-        </button>
-</div>
+
 </form>
 @include('layout.footer')
 @endsection
